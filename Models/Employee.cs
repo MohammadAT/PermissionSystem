@@ -9,5 +9,8 @@ namespace PermissionSystem.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Department { get; set; }
+        public int ManagerId { get; set; }
+        public Manager Manager { get; set; }
     }
 }
