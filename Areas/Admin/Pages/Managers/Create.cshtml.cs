@@ -30,6 +30,7 @@ namespace PermissionSystem.Areas.Admin.Pages.Managers
 
         //[BindProperty]
         //public Manager Manager { get; set; }
+
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -79,7 +80,7 @@ namespace PermissionSystem.Areas.Admin.Pages.Managers
                 Name = Input.Name,
                 UserName = Input.Username,
                 ResetPasswordRequired = true,
-                Email = Input.Username + "@test.com"
+                Email = Input.Email
             };
 
             var result = await _userManager.CreateAsync(user, Input.Password);

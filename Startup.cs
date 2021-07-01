@@ -34,13 +34,15 @@ namespace PermissionSystem
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => {
+                options.SignIn.RequireConfirmedAccount = true;
+            })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             services.AddRazorPages(options => {
-                options.Conventions.AuthorizeAreaFolder("Admin", "/Managers", "RequireAdminRole");
+                options.Conventions.AuthorizeAreaFolder("Admin", "/Managers");
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Employees", "RequireAdminRole");
             });
 
