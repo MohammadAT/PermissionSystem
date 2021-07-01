@@ -1,0 +1,78 @@
+﻿@page
+@model PermissionSystem.Pages.Requests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].TimeFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].TimeTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].EmployeeNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].ManagerNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].RequestReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].RequestStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LeavePermissionRequest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestReason.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

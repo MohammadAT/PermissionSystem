@@ -1,0 +1,70 @@
+﻿@page
+@model PermissionSystem.Pages.Requests.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>LeavePermissionRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LeavePermissionRequest.Id" />
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.TimeFrom" class="control-label"></label>
+                <input asp-for="LeavePermissionRequest.TimeFrom" class="form-control" />
+                <span asp-validation-for="LeavePermissionRequest.TimeFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.TimeTo" class="control-label"></label>
+                <input asp-for="LeavePermissionRequest.TimeTo" class="form-control" />
+                <span asp-validation-for="LeavePermissionRequest.TimeTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.Date" class="control-label"></label>
+                <input asp-for="LeavePermissionRequest.Date" class="form-control" />
+                <span asp-validation-for="LeavePermissionRequest.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.EmployeeNote" class="control-label"></label>
+                <input asp-for="LeavePermissionRequest.EmployeeNote" class="form-control" />
+                <span asp-validation-for="LeavePermissionRequest.EmployeeNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.ManagerNote" class="control-label"></label>
+                <input asp-for="LeavePermissionRequest.ManagerNote" class="form-control" />
+                <span asp-validation-for="LeavePermissionRequest.ManagerNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.RequestReasonId" class="control-label"></label>
+                <select asp-for="LeavePermissionRequest.RequestReasonId" class="form-control" asp-items="ViewBag.RequestReasonId"></select>
+                <span asp-validation-for="LeavePermissionRequest.RequestReasonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.RequestStatusId" class="control-label"></label>
+                <select asp-for="LeavePermissionRequest.RequestStatusId" class="form-control" asp-items="ViewBag.RequestStatusId"></select>
+                <span asp-validation-for="LeavePermissionRequest.RequestStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavePermissionRequest.EmployeeId" class="control-label"></label>
+                <select asp-for="LeavePermissionRequest.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <span asp-validation-for="LeavePermissionRequest.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

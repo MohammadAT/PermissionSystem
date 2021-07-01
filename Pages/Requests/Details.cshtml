@@ -1,0 +1,67 @@
+﻿@page
+@model PermissionSystem.Pages.Requests.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LeavePermissionRequest</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.TimeFrom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.TimeFrom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.TimeTo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.TimeTo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.EmployeeNote)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.EmployeeNote)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.ManagerNote)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.ManagerNote)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.RequestReason)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.RequestReason.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.RequestStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.RequestStatus.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeavePermissionRequest.Employee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeavePermissionRequest.Employee.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.LeavePermissionRequest.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
