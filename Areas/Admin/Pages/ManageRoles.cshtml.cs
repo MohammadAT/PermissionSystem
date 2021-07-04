@@ -54,6 +54,8 @@ namespace PermissionSystem.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            await GetRoles();
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -67,12 +69,15 @@ namespace PermissionSystem.Areas.Admin.Pages
             var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
             {
+                await GetRoles();
                 return Page();
             }
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
+
+
             return Page();
 
         }
