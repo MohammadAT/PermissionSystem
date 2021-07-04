@@ -80,7 +80,8 @@ namespace PermissionSystem.Areas.Admin.Pages.Managers
                 Name = Input.Name,
                 UserName = Input.Username,
                 ResetPasswordRequired = true,
-                Email = Input.Email
+                Email = Input.Email,
+                EmailConfirmed = true
             };
 
             var result = await _userManager.CreateAsync(user, Input.Password);

@@ -37,7 +37,7 @@ namespace PermissionSystem.Areas.Admin.Pages.Employees
             {
                 return NotFound();
             }
-           ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Id");
+           ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Name");
             return Page();
         }
 

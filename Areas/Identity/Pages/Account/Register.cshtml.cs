@@ -67,10 +67,13 @@ namespace PermissionSystem.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task<ActionResult> OnGetAsync(string returnUrl = null)
         {
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            return RedirectToPage("Login");
+
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

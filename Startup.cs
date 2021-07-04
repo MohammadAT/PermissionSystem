@@ -43,7 +43,7 @@ namespace PermissionSystem
 
             services.AddRazorPages(options => {
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Managers");
-                options.Conventions.AuthorizeAreaFolder("Admin", "/Employees", "RequireAdminRole");
+                options.Conventions.AuthorizeAreaFolder("Admin", "/Employees");
             });
 
             services.AddAuthorization(options =>
