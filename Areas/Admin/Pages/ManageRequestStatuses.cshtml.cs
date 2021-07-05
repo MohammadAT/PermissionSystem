@@ -39,11 +39,10 @@ namespace PermissionSystem.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await GetRequestStatuses();
 
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage();
             }
 
             var requestStatus = new RequestStatus
@@ -54,8 +53,7 @@ namespace PermissionSystem.Areas.Admin.Pages
             _context.RequestStatuses.Add(requestStatus);
             await _context.SaveChangesAsync();
 
-            await GetRequestStatuses();
-            return Page();
+            return RedirectToPage();
 
         }
 

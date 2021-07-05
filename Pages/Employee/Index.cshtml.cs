@@ -30,5 +30,18 @@ namespace PermissionSystem.Pages.Employee
                 .Include(l => l.RequestReason)
                 .Include(l => l.RequestStatus).Where(x => x.EmployeeId == employee.Id).ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var request = await _context.LeavePermissionRequests.FindAsync(id);
+
+            if (request != null)
+            {
+                _context.LeavePermissionRequests.Remove(request);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
+        }
     }
 }

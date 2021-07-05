@@ -38,33 +38,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.LeavePermissionRequest) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeNote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerNote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestReason.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestStatus.Name)
-            </td>
-            <td>
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.LeavePermissionRequest)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerNote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestReason.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestStatus.Name)
+                </td>
+                <td>
+                    <form method="post">
+                        <button class="btn btn-link" type="submit" asp-page-handler="delete" asp-route-id="@item.Id">
+                            delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

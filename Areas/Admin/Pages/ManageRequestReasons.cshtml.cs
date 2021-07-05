@@ -41,11 +41,10 @@ namespace PermissionSystem.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await GetRequestReasons();
 
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage();
             }
 
             var requestReason = new RequestReason
@@ -56,9 +55,7 @@ namespace PermissionSystem.Areas.Admin.Pages
              _context.RequestReasons.Add(requestReason);
             await _context.SaveChangesAsync();
 
-            await GetRequestReasons();
-            return Page();
-
+            return RedirectToPage();
         }
 
         private async Task GetRequestReasons()

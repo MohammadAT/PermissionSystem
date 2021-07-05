@@ -54,11 +54,10 @@ namespace PermissionSystem.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await GetRoles();
 
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage();
             }
 
             var role = new IdentityRole
@@ -69,8 +68,7 @@ namespace PermissionSystem.Areas.Admin.Pages
             var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
             {
-                await GetRoles();
-                return Page();
+                return RedirectToPage();
             }
             foreach (var error in result.Errors)
             {
@@ -78,7 +76,7 @@ namespace PermissionSystem.Areas.Admin.Pages
             }
 
 
-            return Page();
+            return RedirectToPage();
 
         }
 
