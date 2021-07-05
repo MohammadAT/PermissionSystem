@@ -26,5 +26,6 @@ namespace PermissionSystem.Areas.Admin.Pages.Employees
             Employee = await _context.Employees
                 .Include(e => e.Manager).ToListAsync();
         }
+
     }
 }

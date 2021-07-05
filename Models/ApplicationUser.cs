@@ -14,5 +14,6 @@ namespace PermissionSystem.Models
         public string Name { get; set; }
 
         public bool ResetPasswordRequired { get; set; }
+
     }
 }
