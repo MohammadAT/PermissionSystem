@@ -65,5 +65,10 @@ namespace PermissionSystem.Areas.Admin.Pages
         {
             RequestReasons = await _context.RequestReasons.ToListAsync();
         }
+
+        public static implicit operator ManageRequestReasonsModel(Models.Manager v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
