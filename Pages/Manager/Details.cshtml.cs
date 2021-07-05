@@ -19,14 +19,14 @@ namespace PermissionSystem.Pages.Manager
             _context = context;
         }
 
-        public IList<LeavePermissionRequest> LeavePermissionRequest { get; set; }
-        public async Task OnGetAsync()
+        public LeavePermissionRequest LeavePermissionRequest { get; set; }
+        public async Task OnGetAsync(int? id)
         {
             var manager = await _context.Managers.FirstOrDefaultAsync(m => m.Username == User.Identity.Name);
             LeavePermissionRequest = await _context.LeavePermissionRequests
                 .Include(x => x.Employee)
                 .Include(l => l.RequestReason)
-                .Include(l => l.RequestStatus).Where(m => m.Employee.ManagerId == manager.Id).ToListAsync();
+                .Include(l => l.RequestStatus).FirstOrDefaultAsync(m => m.Id == id);
         }
     }
 }
