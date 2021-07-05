@@ -44,12 +44,15 @@ namespace PermissionSystem
             services.AddRazorPages(options => {
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Managers");
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Employees");
+                options.Conventions.AuthorizeFolder("/Manager", "RequireManagerRole");
             });
 
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("RequireAdminRole",
                      policy => policy.RequireRole(RoleName.Admin));
+                options.AddPolicy("RequireManagerRole",
+                     policy => policy.RequireRole(RoleName.Manager));
             });
         }
 

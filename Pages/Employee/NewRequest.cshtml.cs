@@ -76,7 +76,7 @@ namespace PermissionSystem.Pages.Employee
                 EmployeeId = employee.Id,
                 EmployeeNote = Input.EmployeeNote,
                 RequestReasonId = Input.RequestReasonId,
-                RequestStatusId = Input.RequestStatusId,
+                RequestStatusId = 1,
                 TimeFrom = Input.TimeFrom,
                 TimeTo = Input.TimeTo
             };

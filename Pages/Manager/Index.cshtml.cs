@@ -25,7 +25,7 @@ namespace PermissionSystem.Pages.Manager
         {
             var manager = await _context.Managers.FirstOrDefaultAsync(m => m.Username == User.Identity.Name);
             LeavePermissionRequest = await _context.LeavePermissionRequests
-                .Include(l => l.Employee)
+                .Include(x => x.Employee)
                 .Include(l => l.RequestReason)
                 .Include(l => l.RequestStatus).Where(m => m.Employee.ManagerId == manager.Id).ToListAsync();
         }

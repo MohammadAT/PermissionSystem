@@ -23,10 +23,12 @@ namespace PermissionSystem.Pages.Employee
 
         public async Task OnGetAsync()
         {
+            var employee = await _context.Employees
+                .FirstOrDefaultAsync(e => e.Username == User.Identity.Name);
             LeavePermissionRequest = await _context.LeavePermissionRequests
                 .Include(l => l.Employee)
                 .Include(l => l.RequestReason)
-                .Include(l => l.RequestStatus).ToListAsync();
+                .Include(l => l.RequestStatus).Where(x => x.EmployeeId == employee.Id).ToListAsync();
         }
     }
 }
