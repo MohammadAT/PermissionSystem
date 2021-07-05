@@ -1760,9 +1760,9 @@ pre code {
 }
 
 .table .thead-dark th {
-  color: #fff;
-  background-color: #343a40;
-  border-color: #454d55;
+    color: #6c757d;
+    background-color: #343a40;
+    border-color: #454d55;
 }
 
 .table .thead-light th {

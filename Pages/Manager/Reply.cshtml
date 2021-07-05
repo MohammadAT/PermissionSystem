@@ -5,31 +5,29 @@
 }
 
 
-<h1>Reply</h1>
+<h2>Reply</h2>
 
-<h4>Manager</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.ManagerNotes" class="control-label"></label>
-                <input asp-for="Input.ManagerNotes" class="form-control" />
-                <span asp-validation-for="Input.ManagerNotes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+<fieldset class="form-group">
+    <legend class="mt-4">Action Status</legend>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            Approve
+        </label>
     </div>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+            Reject
+        </label>
+    </div>
+</fieldset>
+<div class="form-group">
+    <label for="exampleTextarea" class="form-label mt-4">Manager Note</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
+<div class="form-group">
+    <input type="submit" value="Send" class="btn btn-success" />
 </div>
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
