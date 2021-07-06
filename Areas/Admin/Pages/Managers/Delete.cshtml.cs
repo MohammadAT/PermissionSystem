@@ -22,6 +22,7 @@ namespace PermissionSystem.Areas.Admin.Pages.Managers
         [BindProperty]
         public Manager Manager { get; set; }
 
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

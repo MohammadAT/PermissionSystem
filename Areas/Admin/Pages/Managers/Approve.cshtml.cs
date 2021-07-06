@@ -10,11 +10,11 @@ using PermissionSystem.Models;
 
 namespace PermissionSystem.Areas.Admin.Pages.Managers
 {
-    public class AgreeOrRejectModel : PageModel
+    public class ApproveModel : PageModel
     {
         private readonly PermissionSystem.Data.ApplicationDbContext _context;
 
-        public AgreeOrRejectModel(PermissionSystem.Data.ApplicationDbContext context)
+        public ApproveModel(PermissionSystem.Data.ApplicationDbContext context)
         {
             _context = context;
         }
@@ -29,31 +29,32 @@ namespace PermissionSystem.Areas.Admin.Pages.Managers
                 return NotFound();
             }
 
+
             Manager = await _context.Managers.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Manager == null)
-            {
-                return NotFound();
-            }
-            return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+                {
+                    return NotFound();
+                }
+                return Page();
             }
 
-            Manager = await _context.Managers.FindAsync(id);
-
-            if (Manager != null)
+            public async Task<IActionResult> OnPostAsync(int? id)
             {
-                _context.Managers.Remove(Manager);
-                await _context.SaveChangesAsync();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            return RedirectToPage("./Index");
+                Manager = await _context.Managers.FindAsync(id);
+
+                if (Manager != null)
+                {
+                    _context.Managers.Remove(Manager);
+                    await _context.SaveChangesAsync();
+                }
+
+                return RedirectToPage("./Index");
+            }
         }
     }
-}
