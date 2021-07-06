@@ -39,49 +39,48 @@
     <tbody>
         @foreach (var item in Model.LeavePermissionRequest)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeNote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerNote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestReason.Name)
-            </td>
-            <td>
-                @if (item.RequestStatusId == 1)
-                {
-                    <form method="post">
-
-                        <div class="btn-group">
-                            <button class="btn btn-success" type="submit" asp-page-handler="approve" asp-route-id="@item.Id">
-                                Approve
-                            </button>
-                            <button class="btn btn-danger" type="submit" asp-page-handler="rejecte" asp-route-id="@item.Id">
-                                Rejecte
-                            </button>
-                        </div>
-                    </form>
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.RequestStatus.Name)
-                }
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerNote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestReason.Name)
+                </td>
+                <td>
+                    @if (item.RequestStatusId == 1)
+                    {
+                        <form method="post">
+                            <div class="btn-group">
+                                <button class="btn btn-success" type="submit" asp-page-handler="approve" asp-route-id="@item.Id">
+                                    Approve
+                                </button>
+                                <button class="btn btn-danger" type="submit" asp-page-handler="rejecte" asp-route-id="@item.Id">
+                                    Reject
+                                </button>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.RequestStatus.Name)
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
