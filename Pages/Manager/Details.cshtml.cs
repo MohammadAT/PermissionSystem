@@ -28,18 +28,6 @@ namespace PermissionSystem.Pages.Manager
                 .Include(l => l.RequestReason)
                 .Include(l => l.RequestStatus).FirstOrDefaultAsync(m => m.Id == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                {
-                    await _context.SaveChangesAsync();
-                }
-
-            }
-
         }
     }
 }

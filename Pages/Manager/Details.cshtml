@@ -70,7 +70,7 @@
         </div>
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                <input type="radio" class="form-check-input" asp-for="LeavePermissionRequest.">
                 Reject
             </label>
         </div>
@@ -79,7 +79,11 @@
         <label for="exampleTextarea" class="form-label mt-4">Manager Note</label>
         <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
     </div>
-
+    <div class="form-group">
+        <label asp-for="Employee.Department" class="control-label"></label>
+        <input asp-for="Employee.Department" class="form-control" />
+        <span asp-validation-for="Employee.Department" class="text-danger"></span>
+    </div>
     <div class="form-group">
         <input type="submit" value="Send" class="btn btn-success" />
     </div>
