@@ -20,6 +20,8 @@ namespace PermissionSystem.Pages.Manager
         }
 
         public LeavePermissionRequest LeavePermissionRequest { get; set; }
+
+
         public async Task OnGetAsync(int? id)
         {
             var manager = await _context.Managers.FirstOrDefaultAsync(m => m.Username == User.Identity.Name);
@@ -27,6 +29,11 @@ namespace PermissionSystem.Pages.Manager
                 .Include(x => x.Employee)
                 .Include(l => l.RequestReason)
                 .Include(l => l.RequestStatus).FirstOrDefaultAsync(m => m.Id == id);
+
+        }
+        public async Task<> OnPostAsync(int? id)
+        {
+
 
         }
     }
