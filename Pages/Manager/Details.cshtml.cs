@@ -53,7 +53,7 @@ namespace PermissionSystem.Pages.Manager
             ViewData["RequestStatus"] = new SelectList(_context.RequestStatuses, "Id", "Name");
             return Page();
         }
-        public async Task<IActionResult> OnPostRejecteAsync(int id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             var request = await _context.LeavePermissionRequests.FindAsync(id);
             if (request != null)
@@ -63,7 +63,7 @@ namespace PermissionSystem.Pages.Manager
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage();
+            return RedirectToPage("Index");
 
         }
 
