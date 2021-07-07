@@ -1,0 +1,29 @@
+﻿@page
+@model PermissionSystem.Pages.Manager.Approve_Or_RejectionModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Permissions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest.RequestReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavePermissionRequest.RequestStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+</table>

@@ -1,32 +1,22 @@
-﻿@page
+﻿
+@page
 @model PermissionSystem.Pages.Manager.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h4>Leave Request List</h4>
-<br />
-<table class="table table-hover table-bordered">
+<h1>Permissions</h1>
+
+
+<table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].Employee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].TimeFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].TimeTo)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].EmployeeNote)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].ManagerNote)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].RequestReason)
@@ -34,6 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.LeavePermissionRequest[0].RequestStatus)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -44,42 +35,19 @@
                     @Html.DisplayFor(modelItem => item.Employee.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TimeFrom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeTo)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmployeeNote)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ManagerNote)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.RequestReason.Name)
                 </td>
                 <td>
-                    @if (item.RequestStatusId == 1)
-                    {
-                        <form method="post">
+                    @Html.DisplayFor(modelItem => item.RequestStatus.Name)
+                </td>
 
-                            <div class="btn-group">
-                                <button class="btn btn-success" type="submit" asp-page-handler="approve" asp-route-id="@item.Id">
-                                    Approve
-                                </button>
-                                <button class="btn btn-danger" type="submit" asp-page-handler="rejecte" asp-route-id="@item.Id">
-                                    Rejecte
-                                </button>
-                            </div>
-                        </form>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.RequestStatus.Name)
-                    }
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }
