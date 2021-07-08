@@ -45,6 +45,7 @@ namespace PermissionSystem
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Managers");
                 options.Conventions.AuthorizeAreaFolder("Admin", "/Employees");
                 options.Conventions.AuthorizeFolder("/Manager", "RequireManagerRole");
+                options.Conventions.AuthorizeFolder("/Employee", "RequireEmployeeRole");
             });
 
             services.AddAuthorization(options =>
@@ -53,6 +54,8 @@ namespace PermissionSystem
                      policy => policy.RequireRole(RoleName.Admin));
                 options.AddPolicy("RequireManagerRole",
                      policy => policy.RequireRole(RoleName.Manager));
+                options.AddPolicy("RequireEmployeeRole",
+                     policy => policy.RequireRole(RoleName.Employee));
             });
         }
 
@@ -63,6 +66,7 @@ namespace PermissionSystem
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
+
             }
             else
             {
